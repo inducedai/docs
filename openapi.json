@@ -1,0 +1,223 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Induced Development Environment API",
+    "description": "API for managing browser instances and automation steps within the Induced Development Environment.",
+    "version": "1.0.0",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.induced.ai/v1/develop"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/browser": {
+      "post": {
+        "summary": "Create a Browser Instance",
+        "description": "Creates a new browser instance in the development environment.",
+        "operationId": "createBrowser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "webhooks": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Determines if the browser instance should be local."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Browser instance created successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/browser/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the browser instance.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get Browser Instance Details",
+        "description": "Retrieves the details of a specific browser instance.",
+        "operationId": "getBrowserDetails",
+        "responses": {
+          "200": {
+            "description": "Browser instance details."
+          },
+          "404": {
+            "description": "Browser instance not found."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Terminate Browser Instance",
+        "description": "Terminates a specific browser instance.",
+        "operationId": "terminateBrowser",
+        "responses": {
+          "200": {
+            "description": "Browser instance terminated successfully."
+          },
+          "404": {
+            "description": "Browser instance not found."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/browser/{id}/steps": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the browser instance for which to retrieve steps.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get Browser Steps",
+        "description": "Retrieves the steps executed in a specific browser instance.",
+        "operationId": "getBrowserSteps",
+        "responses": {
+          "200": {
+            "description": "List of browser steps."
+          },
+          "404": {
+            "description": "Browser instance not found."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/step": {
+      "post": {
+        "summary": "Create a Step",
+        "description": "Creates a new step to be executed in a browser instance.",
+        "operationId": "createStep",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string",
+                    "description": "The session identifier of the browser instance."
+                  },
+                  "task": {
+                    "type": "string",
+                    "description": "The task to be executed in the step."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Step created successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/step/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the step.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get Step Details",
+        "description": "Retrieves the details of a specific step.",
+        "operationId": "getStepDetails",
+        "responses": {
+          "200": {
+            "description": "Step details."
+          },
+          "404": {
+            "description": "Step not found."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      }
+    }
+  }
+}

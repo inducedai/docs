@@ -1,78 +1,65 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Induced Docs",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo-black.png",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#3D4FC0",
+    "light": "#455ced",
+    "dark": "#3D4FC0",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#455ced",
+      "to": "#3D4FC0"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@induced.ai"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://developers.induced.ai"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
       "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "icon": "discord",
+      "url": "https://discord.gg/vfYXHKWk"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
       "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
+      "pages": [
+        "introduction", "webhooks"
+      ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Browser",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "browser/create",
+        "browser/get",
+        "browser/get-steps",
+        "browser/delete",
+        "browser/get-sessions"
+      ]
+    },
+    {
+      "group": "Steps",
+      "pages": [
+        "step/create",
+        "step/get"
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/inducedai",
+    "github": "https://github.com/inducedai",
+    "linkedin": "https://www.linkedin.com/company/induced-ai"
   }
 }
