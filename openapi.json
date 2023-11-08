@@ -57,6 +57,21 @@
             "ApiKeyAuth": []
           }
         ]
+      },
+      "get":{
+        "summary": "Get Browser Instances",
+        "description": "Retrieves a list of browser instances.",
+        "operationId": "getBrowserInstances",
+        "responses": {
+          "200": {
+            "description": "List of browser instances."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       }
     },
     "/browser/{id}": {
