@@ -183,9 +183,12 @@
                     "type": "string",
                     "description": "The session identifier of the browser instance."
                   },
-                  "task": {
-                    "type": "string",
-                    "description": "The task to be executed in the step."
+                  "tasks": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "The tasks to be executed in the step.."
                   }
                 }
               }
