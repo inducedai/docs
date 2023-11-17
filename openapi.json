@@ -103,7 +103,20 @@
             "ApiKeyAuth": []
           }
         ]
-      },
+      }
+    },
+    "/browser/{id}/terminate": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the browser instance.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
       "post": {
         "summary": "Terminate Browser Instance",
         "description": "Terminates a specific browser instance.",
