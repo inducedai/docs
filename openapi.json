@@ -45,7 +45,7 @@
           }
         },
         "responses": {
-          "201": {
+          "200": {
             "description": "Browser instance created successfully."
           },
           "400": {
@@ -196,7 +196,7 @@
           }
         },
         "responses": {
-          "201": {
+          "200": {
             "description": "Step created successfully."
           },
           "400": {
@@ -232,6 +232,392 @@
           },
           "404": {
             "description": "Step not found."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/step/extract": {
+      "post": {
+        "summary": "Extracts variables from steps",
+        "description": "Automatically converts static steps to dynamic steps by extracting variables from the steps.",
+        "operationId": "extractVariables",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "steps": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "The steps that should be converted to dynamic steps."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Variables extracted successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/workflow": {
+      "post": {
+        "summary": "Create a new workflow",
+        "description": "Creates a new workflow with static and dynamic steps.",
+        "operationId": "createWorkflow",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "staticSteps": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "The static steps of the workflow."
+                  },
+                  "dynamicSteps": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "The dynamic steps of the workflow."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the workflow."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Workflow saved successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "Get all workflows",
+        "description": "Gets all the workflows.",
+        "operationId": "getAllWorkflows",
+        "responses": {
+          "200": {
+            "description": "Workflows retrieved successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/workflow/{id}/save": {
+      "post": {
+        "summary": "Save an existing workflow",
+        "description": "Saves an existing workflow with static and dynamic steps.",
+        "operationId": "saveWorkflow",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the workflow to save."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "staticSteps": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "The static steps of the workflow."
+                  },
+                  "dynamicSteps": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "The dynamic steps of the workflow."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the workflow."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Workflow saved successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/workflow/{id}": {
+      "get": {
+        "summary": "Get details of a workflow",
+        "description": "Gets all the details of a workflow by ID.",
+        "operationId": "getWorkflowDetails",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the workflow."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workflow details retrieved successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/workflow/{id}/variables": {
+      "get": {
+        "summary": "Get variables of a workflow",
+        "description": "Get all the variables attached in this workflow.",
+        "operationId": "getWorkflowVariables",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the workflow."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Variables retrieved successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/workflow/{id}/delete": {
+      "post": {
+        "summary": "Delete a workflow",
+        "description": "Deletes a workflow by ID.",
+        "operationId": "deleteWorkflow",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the workflow."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workflow deleted successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/workflow/{id}/run": {
+      "post": {
+        "summary": "Run a workflow",
+        "description": "Runs a workflow and returns a workflow run ID.",
+        "operationId": "runWorkflow",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the workflow."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "variables": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "value"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "variables"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Workflow run ID retrieved successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/run/{id}": {
+      "get": {
+        "summary": "Get details of a workflow run",
+        "description": "Gets all the details and logs of a workflow run, including the live streaming URL.",
+        "operationId": "getWorkflowRunDetails",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the workflow run."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workflow run details retrieved successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/run/{id}/stop": {
+      "post": {
+        "summary": "Stop a workflow run",
+        "description": "Stops a workflow run mid-way.",
+        "operationId": "stopWorkflowRun",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the workflow run."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workflow run stopped successfully."
+          },
+          "400": {
+            "description": "Bad Request."
           }
         },
         "security": [

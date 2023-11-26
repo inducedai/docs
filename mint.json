@@ -36,7 +36,8 @@
     {
       "group": "API Documentation",
       "pages": [
-        "introduction", "webhooks"
+        "introduction",
+        "webhooks"
       ]
     },
     {
@@ -53,7 +54,27 @@
       "group": "Steps",
       "pages": [
         "step/create",
-        "step/get"
+        "step/get",
+        "step/extract"
+      ]
+    },
+    {
+      "group": "Workflows",
+      "pages": [
+        "workflow/create",
+        "workflow/save",
+        "workflow/get",
+        "workflow/getone",
+        "workflow/variables",
+        "workflow/run",
+        "workflow/delete"
+      ]
+    },
+    {
+      "group": "Workflow Runs",
+      "pages": [
+        "run/get",
+        "run/stop"
       ]
     }
   ],
