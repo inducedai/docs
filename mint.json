@@ -47,6 +47,8 @@
         "browser/get",
         "browser/get-steps",
         "browser/delete",
+        "browser/delete-all",
+        "browser/variables",
         "browser/get-sessions"
       ]
     },

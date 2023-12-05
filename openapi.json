@@ -136,6 +136,54 @@
         ]
       }
     },
+    "/browser/{id}/variables": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the browser instance for which to retrieve variables.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get Browser Variables",
+        "description": "Retrieves the variables of a specific browser instance.",
+        "operationId": "getBrowserVariables",
+        "responses": {
+          "200": {
+            "description": "List of browser variables."
+          },
+          "404": {
+            "description": "Browser instance not found."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/browser/terminateAll": {
+      "post": {
+        "summary": "Terminate All Browser Instances",
+        "description": "Terminates all active browser instances.",
+        "operationId": "terminateAllBrowsers",
+        "responses": {
+          "200": {
+            "description": "All browser instances terminated successfully."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/browser/{id}/steps": {
       "parameters": [
         {
