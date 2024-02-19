@@ -23,60 +23,36 @@
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://developers.induced.ai"
+    "url": "https://develop.induced.ai"
   },
   "anchors": [
     {
       "name": "Community",
       "icon": "discord",
-      "url": "https://discord.gg/vfYXHKWk"
+      "url": "https://indcd.co/discord"
     }
   ],
   "navigation": [
     {
       "group": "API Documentation",
       "pages": [
-        "introduction",
-        "webhooks"
-      ]
-    },
-    {
-      "group": "Browser",
-      "pages": [
-        "browser/create",
-        "browser/get",
-        "browser/get-steps",
-        "browser/delete",
-        "browser/delete-all",
-        "browser/variables",
-        "browser/get-sessions"
-      ]
-    },
-    {
-      "group": "Steps",
-      "pages": [
-        "step/create",
-        "step/get",
-        "step/extract"
+        "introduction"
       ]
     },
     {
       "group": "Workflows",
       "pages": [
-        "workflow/create",
-        "workflow/save",
+        "workflow/get-runs",
         "workflow/get",
-        "workflow/getone",
-        "workflow/variables",
-        "workflow/run",
-        "workflow/delete"
+        "workflow/list",
+        "workflow/run"
       ]
     },
     {
-      "group": "Workflow Runs",
+      "group": "Dataset",
       "pages": [
-        "run/get",
-        "run/stop"
+        "dataset/get",
+        "dataset/list"
       ]
     }
   ],
