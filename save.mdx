@@ -1,0 +1,44 @@
+---
+title: 'Saving Workflows'
+description: 'Dive into how you can make repeatable workflows with Induced'
+---
+
+<video
+  controls
+  className="w-full aspect-video"
+  src="https://cdn.induced.ai/guides/run.mp4"
+></video>
+
+<Note>
+  This guide provides an overview of how to save workflows in Induced, making them reusable for different contexts or for automation via the API or front end.
+</Note>
+
+## Creating a Simple Workflow
+
+1. **Navigate to Google Finance**: Start by going to Google Finance, clicking on the search bar, typing in "Tesla," clicking on "Tesla," and taking a focus screenshot of the Tesla graph.
+
+2. **Perform an Agent Reasoning Step**: Ask a question like "How's the stock graph doing today in two lines?" and attach the screenshot. The agent will produce a response summarizing the stock's performance.
+
+## Saving the Workflow
+
+1. **Click Save Workflow**: After completing your workflow, click the "Save Workflow" button. This will process the steps and open a modal for saving.
+
+2. **Review and Modify Steps**: The modal displays your workflow steps and any input/output variables. Highlighted steps indicate dynamic elements that can be replaced with variables for reuse. For example, you can replace "Tesla" with a variable called "search term" to make the workflow adaptable for other stocks.
+
+3. **Name and Save the Workflow**: Enter a name for your workflow, such as "Stock Analysis Using Screenshot," and click "Save."
+
+## Running the Saved Workflow
+
+1. **Select the Workflow**: Go to the "Run" section and select the saved workflow from the list.
+
+2. **Provide Input Variables**: If the workflow has input variables, you'll be prompted to enter them. For example, you can run the workflow with "Apple Inc" instead of "Tesla" by typing it into the input field.
+
+3. **Execute the Workflow**: Click "Run" to execute the workflow with the new context. The steps will be dynamically updated to reflect the new input, and the output variables will be displayed.
+
+<Tip>
+  By saving workflows with dynamic elements, you can easily reuse them for different contexts without having to recreate the entire workflow each time.
+</Tip>
+
+## Conclusion
+
+Saving workflows in Induced allows you to streamline your automation processes, making it easy to rerun workflows with different inputs or share them with others for reuse. By leveraging the dynamic element feature, you can create versatile workflows that adapt to various scenarios.

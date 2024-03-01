@@ -32,33 +32,52 @@
       "url": "https://indcd.co/discord"
     }
   ],
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api"
+    }
+  ],
   "navigation": [
+    {
+      "group": "Guides",
+      "pages": [
+        "introduction",
+        "general",
+        "screenshot",
+        "agent",
+        "authentication",
+        "save",
+        "api"
+      ]
+    },
     {
       "group": "API Documentation",
       "pages": [
-        "introduction"
+        "api/introduction"
       ]
     },
     {
       "group": "Workflows",
       "pages": [
-        "workflow/get-runs",
-        "workflow/get",
-        "workflow/list",
-        "workflow/run"
+        "api/workflow/get-runs",
+        "api/workflow/get",
+        "api/workflow/list",
+        "api/workflow/run"
       ]
     },
     {
       "group": "Dataset",
       "pages": [
-        "dataset/get",
-        "dataset/list"
+        "api/dataset/get",
+        "api/dataset/list"
       ]
     }
   ],
   "footerSocials": {
     "twitter": "https://twitter.com/inducedai",
     "github": "https://github.com/inducedai",
-    "linkedin": "https://www.linkedin.com/company/induced-ai"
+    "linkedin": "https://www.linkedin.com/company/induced-ai",
+    "discord" : "https://indcd.co/discord"
   }
 }

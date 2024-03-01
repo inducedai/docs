@@ -1,0 +1,48 @@
+---
+title: 'Authentication'
+description: 'Understand how to handle authentication in automated cloud-sessions.'
+---
+
+<video
+  controls
+  className="w-full aspect-video"
+  src="https://cdn.induced.ai/guides/authentication.mp4"
+></video>
+
+<Note>
+  This guide demonstrates how to add authentication to your workflows in Induced, ensuring secure access when running workflows through the API or the front end.
+</Note>
+
+## Using Passwordless Authentication
+
+Induced offers a passwordless authentication system that simplifies the process of adding authentication to your workflows.
+
+## Steps to Add Authentication
+
+1. **Navigate to the Website**: Start by going to the website where you want to add authentication. For example, navigate to `github.com`.
+
+2. **Start Authentication**: Open the expandable menu next to the Save button and select "Start Authentication." This puts the system in a state where it's ready to capture your login process.
+
+3. **Log In as Usual**: Perform the login steps as you normally would, such as entering your username and password, and any two-factor authentication codes if required. Note that these steps will not be recorded in the workflow to ensure security.
+
+4. **Complete Authentication**: Once logged in, click "Complete Authentication." This adds a single step to your workflow, indicated by a lock icon, representing the authentication process.
+
+## Saving and Running the Workflow
+
+1. **Save the Workflow**: After completing the authentication, save your workflow with a name, such as "Login to GitHub."
+
+2. **Run the Workflow**: Test the authentication by running the workflow. The system should automatically log you into the website using the captured authentication data.
+
+## Behind the Scenes
+
+- Induced captures the state of the browser, including cookies and local storage, during the authentication process.
+- When the workflow is run, it injects this captured state to log you in automatically.
+- If the authentication data expires, you'll be prompted to log in again manually, and the workflow can resume smoothly afterward.
+
+<Tip>
+  The passwordless authentication system in Induced ensures that your login credentials are not recorded in the workflow steps, maintaining the security of your information while enabling automated access.
+</Tip>
+
+## Conclusion
+
+By following these steps, you can easily add authentication to your Induced workflows, allowing for secure and automated access to websites and tools. This feature is particularly useful for workflows that require login access to perform tasks.
