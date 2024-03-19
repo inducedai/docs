@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Customer Facing Endpoints",
+    "title": "Autonomous API",
     "version": "1.0.0"
   },
   "servers": [
@@ -10,86 +10,74 @@
     }
   ],
   "paths": {
-    "/workflows": {
-      "get": {
-        "summary": "List Workflows",
-        "operationId": "listWorkflows",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
-      }
-    },
-    "/workflows/{id}": {
-      "get": {
-        "summary": "List Workflow Runs",
-        "operationId": "listWorkflowRuns",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
-      }
-    },
-    "/workflows/{id}/runs/{runid}": {
-      "get": {
-        "summary": "Get Workflow Run",
-        "operationId": "getWorkflowRun",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "runid",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
-      }
-    },
-    "/workflows/{id}/run": {
+    "/autonomous": {
       "post": {
-        "summary": "Run Workflow",
-        "operationId": "runWorkflow",
+        "summary": "Execute an Autonomous Task",
+        "operationId": "executeAutonomousTask",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "task": {
+                    "type": "string",
+                    "example": "Go to google and search for Elon Musk"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task executed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "streamingUrl": {
+                          "type": "string"
+                        },
+                        "watchUrl": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "timeTaken": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/autonomous/{id}": {
+      "get": {
+        "summary": "Get Autonomous Task Result",
+        "operationId": "getAutonomousTaskResult",
         "parameters": [
           {
             "name": "id",
@@ -102,7 +90,64 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Task result retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "run": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string"
+                            },
+                            "steps": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "step": {
+                                    "type": "string"
+                                  },
+                                  "status": {
+                                    "type": "string"
+                                  },
+                                  "thought": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "result": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "timeTaken": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -112,26 +157,10 @@
         ]
       }
     },
-    "/datasets": {
-      "get": {
-        "summary": "List Datasets",
-        "operationId": "listDatasets",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
-      }
-    },
-    "/datasets/{id}": {
-      "get": {
-        "summary": "Get Dataset",
-        "operationId": "getDataset",
+    "/autonomous/{id}/stop": {
+      "post": {
+        "summary": "Stop an Autonomous Task",
+        "operationId": "stopAutonomousTask",
         "parameters": [
           {
             "name": "id",
@@ -144,7 +173,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Task stopped successfully"
           }
         },
         "security": [
