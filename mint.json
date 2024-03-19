@@ -39,7 +39,8 @@
         "introduction",
         "autonomous/task",
         "autonomous/status",
-        "autonomous/stop"
+        "autonomous/stop",
+        "autonomous/feedback"
       ]
     }
   ],
