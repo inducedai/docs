@@ -32,45 +32,13 @@
       "url": "https://indcd.co/discord"
     }
   ],
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api"
-    }
-  ],
   "navigation": [
     {
-      "group": "Guides",
+      "group": "Autonomous Browsing Agent",
       "pages": [
-        "introduction",
-        "general",
-        "screenshot",
-        "agent",
-        "authentication",
-        "save",
-        "run-api"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api/introduction"
-      ]
-    },
-    {
-      "group": "Workflows",
-      "pages": [
-        "api/workflow/get-runs",
-        "api/workflow/get",
-        "api/workflow/list",
-        "api/workflow/run"
-      ]
-    },
-    {
-      "group": "Dataset",
-      "pages": [
-        "api/dataset/get",
-        "api/dataset/list"
+        "api/autonomous/task",
+        "api/autonomous/status",
+        "api/autonomous/stop"
       ]
     }
   ],
