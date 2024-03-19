@@ -48,7 +48,7 @@
         "agent",
         "authentication",
         "save",
-        "api"
+        "run-api"
       ]
     },
     {
