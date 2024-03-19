@@ -37,9 +37,9 @@
       "group": "Autonomous Browsing Agent",
       "pages": [
         "introduction",
-        "api/autonomous/task",
-        "api/autonomous/status",
-        "api/autonomous/stop"
+        "autonomous/task",
+        "autonomous/status",
+        "autonomous/stop"
       ]
     }
   ],
