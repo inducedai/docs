@@ -34,13 +34,26 @@
   ],
   "navigation": [
     {
-      "group": "Autonomous Browsing Agent",
+      "group" : "Getting Started",
       "pages": [
-        "introduction",
+        "introduction"
+      ]
+    },
+    {
+      "group": "Autonomous Browsing API",
+      "pages": [
         "autonomous/task",
         "autonomous/status",
         "autonomous/stop",
         "autonomous/feedback"
+      ]
+    },
+    {
+      "group": "Extract API",
+      "pages": [
+        "introduction",
+        "extract/task",
+        "extract/status"
       ]
     }
   ],
