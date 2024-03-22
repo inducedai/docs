@@ -22,8 +22,8 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://develop.induced.ai"
+    "name": "Web Console",
+    "url": "https://browse.new"
   },
   "anchors": [
     {
@@ -32,9 +32,18 @@
       "url": "https://indcd.co/discord"
     }
   ],
+  "tabs": [
+    {
+      "name": "Knowledge Base",
+      "url": "knowledge"
+    }
+  ],
+  "primaryTab": {
+    "name": "API Reference"
+  },
   "navigation": [
     {
-      "group" : "Getting Started",
+      "group": "Getting Started",
       "pages": [
         "introduction"
       ]
@@ -51,9 +60,16 @@
     {
       "group": "Extract API",
       "pages": [
-        "introduction",
         "extract/task",
         "extract/status"
+      ]
+    },
+    {
+      "group" : "Workspace Email IDs",
+      "pages": [
+        "knowledge/email/introduction",
+        "knowledge/email/forwarding-gmail",
+        "knowledge/email/forwarding-outlook"
       ]
     }
   ],
@@ -61,6 +77,6 @@
     "twitter": "https://twitter.com/inducedai",
     "github": "https://github.com/inducedai",
     "linkedin": "https://www.linkedin.com/company/induced-ai",
-    "discord" : "https://indcd.co/discord"
+    "discord": "https://indcd.co/discord"
   }
 }
