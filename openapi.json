@@ -111,6 +111,9 @@
                             "status": {
                               "type": "string"
                             },
+                            "objective": {
+                              "type": "string"
+                            },
                             "steps": {
                               "type": "array",
                               "items": {
@@ -326,7 +329,7 @@
                     "data": {
                       "type": "object",
                       "properties": {
-                        "session": {
+                        "run": {
                           "type": "object",
                           "properties": {
                             "id": {
