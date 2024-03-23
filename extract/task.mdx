@@ -2,3 +2,32 @@
 title: 'Create a new extraction task'
 openapi: 'POST /extract'
 ---
+
+
+## Input Payload
+- `url` (string): The URL from which data will be extracted. It should point to the specific page containing the data of interest.
+- `query` (string): The query parameter allows you to define the extraction query to specify the data that needs to be extracted from the page.
+- `columns` (string): A comma-separated list of column names that acts as an interface to structure the extracted data.
+
+## Output Payload
+
+When the extraction task is successfully initiated, the API responds with a `200` status code, indicating a successful request. The response includes a payload with several important pieces of information. Among these, the `data.id` field is particularly vital.
+
+### Saving the Run ID
+
+```javascript
+// Response example with a status code of 200
+{
+  "success": true,
+  "data": {
+    "id": "your-unique-run-id",
+    // Additional fields...
+  },
+  // Other response properties...
+}
+```
+
+<Note>
+  Ensure to save the `data.id` after receiving the response.
+  You will use this unique ID to periodically keep polling the GET endpoint to receive the extracted data.
+</Note>

@@ -7,6 +7,26 @@ description: 'Get started with the Extract API by exploring these examples'
   The Extract API allows you to extract structured data from web pages. In this quickstart guide, you will find a few examples to showcase how you can extract any unstructured web data into structured formats.
 </Note>
 
+# How it works
+<Steps>
+  <Step title="Submit a Request">
+    Start by submitting a POST request with the URL of the page you wish to extract data from, along with the specific query and columns you need. This will initiate the extraction process.
+  </Step>
+  <Step title="Spin Up a Remote Browser">
+    Upon receiving your request, the API spins up a remote browser instance. This browser navigates to the URL you provided, creating a new session for your extraction task.
+  </Step>
+  <Step title="Navigate and Understand the Webpage">
+    The remote browser navigates to the requested URL and performs an intelligent analysis of the webpage, identifying the data that matches your extraction query.
+  </Step>
+  <Step title="Extract the Information">
+    Using the details specified in your `columns` parameter as a schema, the API extracts the relevant information, structuring it according to your needs. If the `columns` is not defined, the agent automatically evaluates what should be the interface
+  </Step>
+  <Step title="Respond with Desired Output">
+    After the data is extracted and structured, the API responds back to your request with the desired output, which you can then use for your applications.
+  </Step>
+</Steps>
+
+# Examples
 ## Example 1: Extracting Trending Repositories
 
 ### Goal

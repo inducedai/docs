@@ -2,3 +2,23 @@
 title: 'Get extraction status'
 openapi: 'GET /extract/{id}'
 ---
+
+### Polling with the Run ID
+
+To track the progress of your extraction task, send a GET request to `/extract/{id}`, where `{id}` is replaced with the run ID you received. This ID is the key for obtaining the status of your extraction task.
+
+#### Path Parameter
+
+- `id`: The unique identifier for your extraction task.
+
+The API will continue to provide updates on the status of your extraction with each poll. The field of interest in the response is `data.run.status`. When this field's value changes to `COMPLETED`, it indicates that the extraction has finished successfully. At this point, you can proceed to use the contents of `data.run.output` for your desired operations.
+
+Here's what you should monitor after each poll:
+
+- `data.run.status`: The status of the extraction task, which you're hoping to reach a value of `COMPLETED`.
+- `data.run.output`: The output or result of your extraction task, available once the status is `COMPLETED`.
+
+<Note>
+Store the run ID securely after receiving it from the POST response. You'll use this ID to poll the GET endpoint for the status of the extraction task.
+Once the extraction status is `COMPLETED`, the run output will be ready for retrieval.
+</Note>
