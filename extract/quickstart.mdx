@@ -95,18 +95,18 @@ curl --location 'https://api.induced.ai/api/v1/extract' \\
 }'
 ```
 
-## Example 3: Extracting Latest Research Papers in Computer Science from arXiv
+## Example 3: Extracting all Stocks from TradingView
 
 ### Goal
 
-Extract a list of the latest research papers published today in the field of computer science from arXiv, including their title, authors, abstract, and paper URL.
+Extract a list of all the trending US stocks with their name, ticket and other infor
 
 ### Example Input Payload
 
 ```json
 {
-  "url": "https://arxiv.org/list/cs/new",
-  "query": "list of all papers with columns title, authors, abstract, paper_url"
+  "url": "https://www.tradingview.com/stock-screener/",
+  "query": "list of all stocks"
 }
 ```
 
@@ -115,10 +115,10 @@ Extract a list of the latest research papers published today in the field of com
 {
   "data": [
     {
-      "title": "example-title",
-      "authors": "example-author1, example-author2",
-      "abstract": "example-abstract",
-      "paper_url": "https://arxiv.org/abs/example-id"
+      "name": "example-stock",
+      "symbol": "example-stock-ticket",
+      "market_cap": "example-market-cap",
+      "price": "example-stock-price"
     },
     ...
   ]
@@ -131,7 +131,7 @@ curl --location 'https://api.induced.ai/api/v1/extract' \\
 --header 'x-api-key: <your-api-key>' \\
 --header 'Content-Type: application/json' \\
 --data '{
-  "url" : "https://arxiv.org/list/cs/new",
-  "query" : "list of all papers with columns title, authors, abstract, paper_url"
+  "url": "https://www.tradingview.com/stock-screener/",
+  "query": "list of all stocks"
 }'
 ```
