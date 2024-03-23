@@ -265,10 +265,7 @@
                     },
                     "data": {
                       "type": "object",
-                      "properties": {
-                        "session": {
-                          "type": "object",
-                          "properties": {
+                      "properties": { 
                             "id": {
                               "type": "string"
                             },
@@ -278,9 +275,7 @@
                             "objective": {
                               "type": "string"
                             }
-                          }
-                        }
-                      }
+                         }
                     },
                     "requestId": {
                       "type": "string"
