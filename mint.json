@@ -60,6 +60,7 @@
     {
       "group": "Extract API",
       "pages": [
+        "extract/quickstart",
         "extract/task",
         "extract/status"
       ]

@@ -1,0 +1,137 @@
+---
+title: 'Quickstart'
+description: 'Get started with the Extract API by exploring these examples that demonstrate how to extract trending repositories from GitHub.'
+---
+
+<Note>
+  The Extract API allows you to extract structured data from web pages. In these examples, we will extract information about trending repositories from GitHub.
+</Note>
+
+## Example 1: Extracting Trending Repositories
+
+### Goal
+
+Extract a list of trending repositories from GitHub, including their name, author, stars, and repository URL.
+
+### Example Input Payload
+
+```json
+{
+  "url": "https://github.com/trending",
+  "query": "list of all trending repositories",
+  "columns": "name, author, stars, repository_url"
+}
+```
+
+### Example Output Payload
+
+```json
+{
+  "data": [
+    {
+      "name": "example-repo",
+      "author": "example-author",
+      "stars": 1234,
+      "repository_url": "https://github.com/example-author/example-repo"
+    },
+    ...
+  ]
+}
+```
+
+### Example cURL
+
+```bash
+curl --location 'https://api.induced.ai/api/v1/extract' \\
+--header 'x-api-key: <your-api-key>' \\
+--header 'Content-Type: application/json' \\
+--data '{
+  "url" : "https://github.com/trending",
+  "query" : "list of all trending repositories",
+  "columns" : "name, author, stars, repository_url"
+}'
+```
+
+## Example 2: Extracting Products Launching Today on Product Hunt
+
+### Goal
+
+Extract a list of products launching today on Product Hunt, including their name, tagline, votes, and product URL.
+
+### Example Input Payload
+
+```json
+{
+  "url": "https://www.producthunt.com/",
+  "query": "list of all products launching today"
+}
+```
+
+### Example Output Payload
+
+```json
+{
+  "data": [
+    {
+      "name": "example-product",
+      "tagline": "example-tagline",
+      "votes": 123,
+      "product_url": "https://www.producthunt.com/posts/example-product"
+    },
+    ...
+  ]
+}
+```
+
+### Example cURL
+
+```bash
+curl --location 'https://api.induced.ai/api/v1/extract' \\
+--header 'x-api-key: <your-api-key>' \\
+--header 'Content-Type: application/json' \\
+--data '{
+  "url" : "https://www.producthunt.com/",
+  "query" : "list of all products launching today"
+}'
+```
+
+## Example 3: Extracting Latest Research Papers in Computer Science from arXiv
+
+### Goal
+
+Extract a list of the latest research papers published today in the field of computer science from arXiv, including their title, authors, abstract, and paper URL.
+
+### Example Input Payload
+
+```json
+{
+  "url": "https://arxiv.org/list/cs/new",
+  "query": "list of all papers with columns title, authors, abstract, paper_url"
+}
+```
+
+### Example Output Payload
+```json
+{
+  "data": [
+    {
+      "title": "example-title",
+      "authors": "example-author1, example-author2",
+      "abstract": "example-abstract",
+      "paper_url": "https://arxiv.org/abs/example-id"
+    },
+    ...
+  ]
+}
+```
+
+### Example cURL
+```bash
+curl --location 'https://api.induced.ai/api/v1/extract' \\
+--header 'x-api-key: <your-api-key>' \\
+--header 'Content-Type: application/json' \\
+--data '{
+  "url" : "https://arxiv.org/list/cs/new",
+  "query" : "list of all papers with columns title, authors, abstract, paper_url"
+}'
+```
