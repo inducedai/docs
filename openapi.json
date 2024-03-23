@@ -336,6 +336,9 @@
                             "objective": {
                               "type": "string"
                             },
+                            "url": {
+                              "type": "string"
+                            },
                             "screenshot": {
                               "type": "string"
                             },
