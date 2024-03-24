@@ -246,6 +246,9 @@
                   },
                   "columns": {
                     "type": "string"
+                  },
+                  "limit": {
+                    "type" : "integer"
                   }
                 }
               }
