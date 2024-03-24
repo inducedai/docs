@@ -248,7 +248,15 @@
                     "type": "string"
                   },
                   "limit": {
-                    "type" : "integer"
+                    "type": "integer"
+                  },
+                  "format": {
+                    "type": "string",
+                    "enum": [
+                      "json",
+                      "csv",
+                      "markdown"
+                    ]
                   }
                 }
               }
@@ -268,17 +276,17 @@
                     },
                     "data": {
                       "type": "object",
-                      "properties": { 
-                            "id": {
-                              "type": "string"
-                            },
-                            "status": {
-                              "type": "string"
-                            },
-                            "objective": {
-                              "type": "string"
-                            }
-                         }
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "objective": {
+                          "type": "string"
+                        }
+                      }
                     },
                     "requestId": {
                       "type": "string"
@@ -346,16 +354,16 @@
                               "type": "string"
                             },
                             "output": {
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "name": {
-                                    "type": "string"
-                                  },
-                                  "value": {
-                                    "type": "array"
-                                  }
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                },
+                                "format": {
+                                  "type": "string"
                                 }
                               }
                             },

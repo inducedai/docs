@@ -9,6 +9,7 @@ openapi: 'POST /extract'
 - `query` (string): The query parameter allows you to define the extraction query to specify the data that needs to be extracted from the page.
 - `columns` (string): A comma-separated list of column names that acts as an interface to structure the extracted data.
 - `limit` (integer): Set a limit to the number of rows to extract
+- `format` (string): The output format how you'd like to retreive the data (possible values: `csv`, `markdown`, `json`). Defaults to `json`
 
 ## Output Payload
 
